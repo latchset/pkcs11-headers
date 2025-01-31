@@ -37,3 +37,9 @@ Thse headers guard deprecated declarions behind a define, for older code
 bases you can define PKCS11_DEPRECATED to get access to deprecated names.
 
 No other macro declaration is needed.
+
+# NOTE about 3.2 pre release headers
+
+This work was committed in preparation for the upcoming 3.2 release.
+These headers are *NOT* final and will probably still see minor adjustmenets
+and should not be used except for testing or preparing pre-release code.
