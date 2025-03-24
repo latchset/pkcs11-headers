@@ -1183,6 +1183,7 @@ ULONGDEF(CK_XMSS_PARAMETER_SET_TYPE);
 #define CKR_SEED_RANDOM_REQUIRED 0x00000206UL
 #define CKR_OPERATION_NOT_VALIDATED 0x00000207UL
 #define CKR_TOKEN_NOT_INITIALIZED 0x00000208UL
+#define CKR_PARAMETER_SET_NOT_SUPPORTED 0x00000209UL
 #define CKR_VENDOR_DEFINED 0x80000000UL
 
 /* CKS */
@@ -1995,12 +1996,6 @@ struct CK_XEDDSA_PARAMS {
     CK_XEDDSA_HASH_TYPE hash;
 };
 
-struct specifiedParams {
-    CK_HSS_LEVELS levels;
-    CK_LMS_TYPE lm_type[8];
-    CK_LMOTS_TYPE lm_ots_type[8];
-};
-
 /* TLS related structure definitions */
 STRUCTDEF(CK_SSL3_KEY_MAT_OUT);
 STRUCTDEF(CK_SSL3_KEY_MAT_PARAMS);
@@ -2277,10 +2272,10 @@ extern CK_RV C_VerifyMessageNext(CK_SESSION_HANDLE, void *, CK_ULONG,
 extern CK_RV C_MessageVerifyFinal(CK_SESSION_HANDLE);
 extern CK_RV C_EncapsulateKey(CK_SESSION_HANDLE, CK_MECHANISM *,
                               CK_OBJECT_HANDLE, CK_ATTRIBUTE *, CK_ULONG,
-                              CK_OBJECT_HANDLE *, CK_BYTE *, CK_ULONG *);
+                              CK_BYTE *, CK_ULONG *, CK_OBJECT_HANDLE *);
 extern CK_RV C_DecapsulateKey(CK_SESSION_HANDLE, CK_MECHANISM *,
-                              CK_OBJECT_HANDLE, CK_BYTE *, CK_ULONG,
-                              CK_ATTRIBUTE *, CK_ULONG, CK_OBJECT_HANDLE *);
+                              CK_OBJECT_HANDLE, CK_ATTRIBUTE *, CK_ULONG,
+                              CK_BYTE *, CK_ULONG, CK_OBJECT_HANDLE *);
 extern CK_RV C_VerifySignatureInit(CK_SESSION_HANDLE, CK_MECHANISM *,
                                    CK_OBJECT_HANDLE, CK_BYTE *, CK_ULONG);
 extern CK_RV C_VerifySignature(CK_SESSION_HANDLE, CK_BYTE *, CK_ULONG);
