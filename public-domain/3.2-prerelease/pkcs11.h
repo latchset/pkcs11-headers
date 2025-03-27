@@ -2289,6 +2289,15 @@ extern CK_RV C_AsyncComplete(CK_SESSION_HANDLE, CK_UTF8CHAR *,
 extern CK_RV C_AsyncGetID(CK_SESSION_HANDLE, CK_UTF8CHAR *, CK_ULONG *);
 extern CK_RV C_AsyncJoin(CK_SESSION_HANDLE, CK_UTF8CHAR *, CK_ULONG, CK_BYTE *,
                          CK_ULONG);
+extern CK_RV C_WrapKeyAuthenticated(CK_SESSION_HANDLE, CK_MECHANISM *,
+                                    CK_OBJECT_HANDLE, CK_OBJECT_HANDLE,
+                                    CK_BYTE *, CK_ULONG *, CK_BYTE *,
+                                    CK_ULONG *);
+extern CK_RV C_UnwrapKeyAuthenticated(CK_SESSION_HANDLE, CK_MECHANISM *,
+                                      CK_OBJECT_HANDLE, CK_BYTE *,
+                                      CK_ULONG, CK_ATTRIBUTE *,
+                                      CK_ULONG, CK_BYTE *, CK_ULONG,
+                                      CK_OBJECT_HANDLE *);
 
 typedef CK_RV (* CK_C_Initialize)(void *);
 typedef CK_RV (* CK_C_Finalize)(void *);
@@ -2472,6 +2481,15 @@ typedef CK_RV (* CK_C_AsyncComplete)(CK_SESSION_HANDLE, CK_UTF8CHAR *,
 typedef CK_RV (* CK_C_AsyncGetID)(CK_SESSION_HANDLE, CK_UTF8CHAR *, CK_ULONG *);
 typedef CK_RV (* CK_C_AsyncJoin)(CK_SESSION_HANDLE, CK_UTF8CHAR *, CK_ULONG,
                                  CK_BYTE *, CK_ULONG);
+typedef CK_RV (* CK_C_WrapKeyAuthenticated)(CK_SESSION_HANDLE, CK_MECHANISM *,
+                                            CK_OBJECT_HANDLE, CK_OBJECT_HANDLE,
+                                            CK_BYTE *, CK_ULONG *, CK_BYTE *,
+                                            CK_ULONG *);
+typedef CK_RV (* CK_C_UnwrapKeyAuthenticated)(CK_SESSION_HANDLE, CK_MECHANISM *,
+                                              CK_OBJECT_HANDLE, CK_BYTE *,
+                                              CK_ULONG, CK_ATTRIBUTE *,
+                                              CK_ULONG, CK_BYTE *, CK_ULONG,
+                                              CK_OBJECT_HANDLE *);
 
 struct CK_FUNCTION_LIST_3_2 {
     CK_VERSION version;
@@ -2577,6 +2595,8 @@ struct CK_FUNCTION_LIST_3_2 {
     CK_C_AsyncComplete C_AsyncComplete;
     CK_C_AsyncGetID C_AsyncGetID;
     CK_C_AsyncJoin C_AsyncJoin;
+    CK_C_WrapKeyAuthenticated  C_WrapKeyAuthenticated ;
+    CK_C_UnwrapKeyAuthenticated  C_UnwrapKeyAuthenticated ;
 };
 
 struct CK_FUNCTION_LIST_3_0 {
