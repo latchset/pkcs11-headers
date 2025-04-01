@@ -2460,11 +2460,11 @@ typedef CK_RV (* CK_C_VerifyMessageNext)(CK_SESSION_HANDLE, void *, CK_ULONG,
 typedef CK_RV (* CK_C_MessageVerifyFinal)(CK_SESSION_HANDLE);
 typedef CK_RV (* CK_C_EncapsulateKey)(CK_SESSION_HANDLE, CK_MECHANISM *,
                                       CK_OBJECT_HANDLE, CK_ATTRIBUTE *,
-                                      CK_ULONG, CK_OBJECT_HANDLE *, CK_BYTE *,
-                                      CK_ULONG *);
+                                      CK_ULONG, CK_BYTE *, CK_ULONG *,
+                                      CK_OBJECT_HANDLE *);
 typedef CK_RV (* CK_C_DecapsulateKey)(CK_SESSION_HANDLE, CK_MECHANISM *,
-                                      CK_OBJECT_HANDLE, CK_BYTE *, CK_ULONG,
-                                      CK_ATTRIBUTE *, CK_ULONG,
+                                      CK_OBJECT_HANDLE, CK_ATTRIBUTE *,
+                                      CK_ULONG, CK_BYTE *, CK_ULONG,
                                       CK_OBJECT_HANDLE *);
 typedef CK_RV (* CK_C_VerifySignatureInit)(CK_SESSION_HANDLE, CK_MECHANISM *,
                                            CK_OBJECT_HANDLE, CK_BYTE *,
