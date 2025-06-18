@@ -38,8 +38,15 @@ bases you can define PKCS11_DEPRECATED to get access to deprecated names.
 
 No other macro declaration is needed.
 
-# NOTE about 3.2 pre release headers
+# NOTE about 3.2 headers
 
-This work was committed in preparation for the upcoming 3.2 release.
-These headers are *NOT* final and will probably still see minor adjustmenets
-and should not be used except for testing or preparing pre-release code.
+This work was committed in preparation for the upcoming 3.2 standard.
+
+The OASIS PKCS#11 TC has completed its work on 3.2, but the standardization
+process includes a rather slow editorial process that follows the technical
+committee work. That process has started but will likely take several months
+before it completes. Nonetheless drafts of the standard are available and no
+more technical work is planned.
+
+This means these headers are very unlikely to change at this point and they
+can be use to prepare code for 3.2 support.
