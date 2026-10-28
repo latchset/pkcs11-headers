@@ -22,18 +22,13 @@ in the public-domain directory replacements is a bug.
 # Use
 
 Copy the header for the version of the interface you want to use in your
-project and use as is or modified. Later headers are bacwards compatible,
+project and use as is or modified. Later headers are backwards compatible,
 so the latest version should be preferred.
 
-The header does not include any optional architecture specific directive.
+If compiling on 32-bit Windows, ensure your calling convention is set to
+__cdecl for the functions you are exporting.
 
-On windows the header should wrapped in #pragma statements for packing
-(ex: #pragma pack(1))
-
-The header does not wrap in extern "C" {}, so C++ projects will have to do
-that on their own.
-
-Thse headers guard deprecated declarions behind a define, for older code
+These headers guard deprecated declarations behind a define, for older code
 bases you can define PKCS11_DEPRECATED to get access to deprecated names.
 
 No other macro declaration is needed.
