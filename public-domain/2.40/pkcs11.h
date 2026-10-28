@@ -3,6 +3,14 @@
 #ifndef _PD_PKCS11_
 #define _PD_PKCS11_
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
+#if defined(_WIN32)
+#pragma pack(push, cryptoki, 1)
+#endif
+
 #define CRYPTOKI_VERSION_MAJOR 2
 #define CRYPTOKI_VERSION_MINOR 40
 #define CRYPTOKI_VERSION_AMENDMENT 0
@@ -21,7 +29,14 @@ typedef CK_UTF8CHAR * CK_UTF8CHAR_PTR;
 typedef CK_ULONG * CK_ULONG_PTR;
 
 /* Basic defines */
+#ifndef NULL_PTR
+#if defined(__cplusplus)
+#define NULL_PTR 0
+#else
 #define NULL_PTR ((void *)0)
+#endif
+#endif
+
 typedef void * CK_VOID_PTR;
 typedef void ** CK_VOID_PTR_PTR;
 
@@ -1746,5 +1761,13 @@ struct CK_FUNCTION_LIST {
     CK_C_CancelFunction C_CancelFunction;
     CK_C_WaitForSlotEvent C_WaitForSlotEvent;
 };
+
+#if defined(_WIN32)
+#pragma pack(pop, cryptoki)
+#endif
+
+#if defined(__cplusplus)
+} /* extern C */
+#endif
 
 #endif
